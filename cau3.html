@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cau 3</title>
+</head>
+<body>
+
+    <h1>Danh sách ô tô cho thuê</h1>
+    <div id="car-list"></div> <!-- Nơi sẽ hiển thị thông tin ô tô -->
+
+    <script>
+        // a) Tạo chuỗi JSON chứa thông tin về 5 ô tô cho thuê
+        const cars = [
+            {
+                loai_xe: "Toyota Camry",
+                hinh_anh: "imagr/anh.png",
+                so_cho: 5,
+                gia_thue: "1,500,000 VND/ngày"
+            },
+            {
+                loai_xe: "Ford Mustang",
+                hinh_anh: "https://via.placeholder.com/150x100?text=Ford+Mustang",
+                so_cho: 2,
+                gia_thue: "2,500,000 VND/ngày"
+            },
+            {
+                loai_xe: "Honda Civic",
+                hinh_anh: "https://via.placeholder.com/150x100?text=Honda+Civic",
+                so_cho: 5,
+                gia_thue: "1,200,000 VND/ngày"
+            },
+            {
+                loai_xe: "BMW X5",
+                hinh_anh: "https://via.placeholder.com/150x100?text=BMW+X5",
+                so_cho: 7,
+                gia_thue: "3,000,000 VND/ngày"
+            },
+            {
+                loai_xe: "Audi A6",
+                hinh_anh: "https://via.placeholder.com/150x100?text=Audi+A6",
+                so_cho: 5,
+                gia_thue: "2,200,000 VND/ngày"
+            }
+        ];
+
+        // b) Sử dụng vòng lặp for để in ra các đối tượng xe
+        const carList = document.getElementById("car-list");
+
+        for (let i = 0; i < cars.length; i++) {
+            const car = cars[i];
+
+            // Tạo phần tử div cho mỗi ô tô
+            const carDiv = document.createElement("div");
+            carDiv.classList.add("car");
+
+            // Thêm nội dung cho div
+            carDiv.innerHTML = `
+                <img src="${car.hinh_anh}" alt="${car.loai_xe}">
+                <h3>${car.loai_xe}</h3>
+                <p>Số chỗ: ${car.so_cho}</p>
+                <p class="price">Giá thuê: ${car.gia_thue}</p>
+            `;
+
+            // Thêm div vào danh sách ô tô
+            carList.appendChild(carDiv);
+        }
+    </script>
+
+</body>
+</html>
